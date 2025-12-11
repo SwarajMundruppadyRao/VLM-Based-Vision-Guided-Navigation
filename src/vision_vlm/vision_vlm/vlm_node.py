@@ -12,11 +12,13 @@ from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-import torch
-from transformers import AutoProcessor, AutoModelForCausalLM
-from PIL import Image as PILImage
-import io
+import re
 import numpy as np
+
+# Heavy ML libraries - imported lazily only when VLM models are needed
+# import torch
+# from transformers import AutoProcessor, AutoModelForCausalLM
+# from PIL import Image as PILImage
 
 
 class VLMNode(Node):
@@ -51,11 +53,9 @@ class VLMNode(Node):
         # Initialize model (simplified for demonstration)
         self.get_logger().info(f'Loading VLM model: {model_name}')
         try:
-            self.device = torch.device(device if torch.cuda.is_available() and device == 'cuda' else 'cpu')
-            self.get_logger().info(f'Using device: {self.device}')
-            
             # Note: In production, you would load an actual VLM model here
             # For now, we'll use rule-based logic as a placeholder
+            # To enable VLM: uncomment imports and add model loading code
             self.model_loaded = False
             self.get_logger().warn('Using rule-based navigation logic (VLM model placeholder)')
             
@@ -128,7 +128,6 @@ class VLMNode(Node):
             return 'MOVE_TO_EXIT'
         elif any(word in text_lower for word in ['room', 'office']):
             # Extract room number if present
-            import re
             room_match = re.search(r'\d+', text)
             if room_match:
                 return f'MOVE_TO_ROOM_{room_match.group()}'

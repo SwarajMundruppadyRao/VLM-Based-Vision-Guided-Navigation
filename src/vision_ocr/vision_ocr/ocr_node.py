@@ -121,8 +121,9 @@ class OCRNode(Node):
             detected_texts = []
             for i, text in enumerate(ocr_data['text']):
                 confidence = float(ocr_data['conf'][i])
-                if confidence > self.confidence_threshold and text.strip():
-                    detected_texts.append(text.strip())
+                text_stripped = text.strip()
+                if confidence > self.confidence_threshold and text_stripped:
+                    detected_texts.append(text_stripped)
             
             # Publish detected text
             if detected_texts:
