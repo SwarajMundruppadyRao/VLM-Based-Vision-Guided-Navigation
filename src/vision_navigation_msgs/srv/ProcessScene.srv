@@ -1,0 +1,10 @@
+# ProcessScene.srv - Service for processing scene and generating commands
+
+# Request
+sensor_msgs/Image image
+string detected_text
+---
+# Response
+bool success
+string command
+string description

@@ -1,0 +1,7 @@
+control_node:
+  ros__parameters:
+    command_topic: "/vlm/navigation_command"
+    velocity_topic: "/cmd_vel"
+    linear_speed: 0.2
+    angular_speed: 0.5
+    command_timeout: 2.0

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>vision_navigation_bringup</name>
+  <version>0.1.0</version>
+  <description>Launch files and configuration for vision-guided navigation system</description>
+  <maintainer email="swaraj@example.com">Swaraj Mundruppadyrao</maintainer>
+  <license>MIT</license>
+
+  <depend>vision_ocr</depend>
+  <depend>vision_vlm</depend>
+  <depend>vision_control</depend>
+  <depend>vision_navigation_msgs</depend>
+
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,7 @@
+ocr_node:
+  ros__parameters:
+    image_topic: "/camera/image_raw"
+    output_topic: "/ocr/detected_text"
+    confidence_threshold: 60.0
+    processing_rate: 2.0
+    preprocess_image: true
